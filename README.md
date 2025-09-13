@@ -1,34 +1,22 @@
-**`LAST Updated`** : `August 2023`
-
-> Unmaintained : Due to Termux not working properly on new Android versions and also Termux not getting maintained properly.
+**`Last updated`** : `September 2025`
 
 ---
 
 ![logo](./previews/logo.png) <br />
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Maintained%3F-No-red?style=for-the-badge">
-  <img src="https://img.shields.io/github/license/adi1090x/termux-desktop?style=for-the-badge">
-  <img src="https://img.shields.io/github/issues/adi1090x/termux-desktop?color=violet&style=for-the-badge">
-  <img src="https://img.shields.io/github/forks/adi1090x/termux-desktop?color=teal&style=for-the-badge">
-  <img src="https://img.shields.io/github/stars/adi1090x/termux-desktop?style=for-the-badge">
-</p>
-
-Alright, Lets just get this straight, these are just some **dotfiles** & **scripts**, which will help you to setup a graphical environment in **termux**. I've tried to make it *as easy as possible* to setup a beautiful ***linux desktop on your android device*** with termux, So follow the steps and you'll end up making it look like this - <br />
+Termux Desktop is based on some **dotfiles** & **scripts**, which will help you to setup a graphical environment in **Termux**. Follow the steps if you'd like to install a nice graphical environment on your device <br />
 
 |Openbox WM|Another Style|
 |--|--|
 |![desktop](./previews/main_1.png)|![desktop](./previews/main_2.png)|
 
-Lets start from the beginning... <br />
+### What is Termux?
 
-### What is termux?
+Termux is an *Android Terminal emulator* and a **Linux environment** app that works directly with **no root** access or setup required. A minimal base system is installed automatically - additional packages are available using the *PKG/APT package manager*. More [Here](https://termux.com/)... <br />
 
-Termux is an *Android terminal emulator* and **Linux environment** app that works directly with **no rooting** or setup required. A minimal base system is installed automatically - additional packages are available using the *PKG/APT package manager*. More [Here](https://termux.com/)... <br />
+### How do I install Termux?
 
-### How To install termux?
-
-You can install termux form google play store or from f-droid. <br />
+You can download Termux from the Google Play Store, or you can get it from F-Droid. <br />
 
 - Get it on [Github](https://github.com/termux/termux-app)
 - Download from [F-Droid](https://f-droid.org/packages/com.termux/) <br />
@@ -41,25 +29,25 @@ Install `Termux` & `Termux:API` on your phone. It's recommended to install *Term
 
 > This setup is created and tested on :
 >
-> Device - **Redmi Note 9 Pro** <br />
-> Android - **Android 10 (Q)** <br />
-> CPU Type - **aarch64**
+> Device - **Samsung Galaxy A3 2016** <br />
+> Android - **Android 10 (Q)** (LineageOS 17.1) <br />
+> CPU Type - **armv8l**
 
 ### Installation
 
 After installing both applications above, open `Termux` and follow the steps below -
 
-- Update termux packages and install `git`
+- Update Termux packages and install `git`. This is required!
 ```
 pkg upgrade && pkg install git
 ```
 
 - Clone this repository
 ```
-git clone --depth=1 https://github.com/adi1090x/termux-desktop.git
+git clone --depth=1 https://github.com/NotNoelChannel/termux-desktop.git
 ```
 
-> **Warning** : I'm assuming that you're doing this on a fresh termux install. If not, I'll suggest you to do so. However the `setup.sh` script backup every file it replace, It's still recommended that you manually backup your files in order to avoid conflicts. <br />
+> **Warning** : We assume that you do this on a fresh Termux install. The `setup.sh` script makes a backup of every file it replaces but it's still recommended that you manually backup your files in order to avoid conflicts. <br />
 
 - Change to cloned directory and run `setup.sh` with *--install* option
 ```
@@ -68,7 +56,7 @@ chmod +x setup.sh
 ./setup.sh --install
 ```
 
-> If script `setup.sh` fails during package installation (due to network issues), you can re-execute it again.
+> If script `setup.sh` fails during package installation (due to network issues or if a package isn't found; edit the setup.sh manually), you can re-execute it again.
 
 - During installation, you'll be asked to set up password for **VNC** -
 ```
@@ -82,8 +70,8 @@ Would you like to enter a view-only password (y/n)? n
 ```
 
 > Note that passwords are not visible when you are typing them and minimum password length is 6 characters.
-> Remember the password you typed as it'll be required to connect via vnc client.
-- If everything is okay, you will see this message -
+> Remember the password you typed as it'll be required to connect via VNC Client.
+- If everything went alright, then you will see this message -
 ```
 New 'localhost:1 ()' desktop is localhost:1
 
@@ -99,9 +87,9 @@ TigerVNC server sessions:
 X DISPLAY #     PROCESS ID
 :1              XXXXX
 ```
-> It means that X (vnc) server is available on display 'localhost:1'. <br />
+> It means that X (VNC) server is available on display 'localhost:1'. <br />
 
-That's it. `Termux Desktop` is installed successfully. *Restart Termux* and enter `startdesktop` command to start *vncserver* and connect via VNC Client. <br />
+That's it. `Termux Desktop` is installed successfully. After you are done, *restart Termux* and enter `startdesktop` command to start *vncserver* and connect via VNC Client. <br />
 ```
 startdesktop
 
@@ -113,16 +101,16 @@ Starting applications specified in /data/data/com.termux/files/home/.vnc/xstartu
 Log file is /data/data/com.termux/files/home/.vnc/localhost:1.log
 ```
 
-### Uninstallation
+### Uninstall
 
-If you ever want to uninstall Termux Desktop, just run `setup.sh` with *--uninstall* option. Just keep the `setup.sh` script and delete the cloned repository to save space. I'll create a separate uninstaller script later. The command below will remove all the packages and delete all the config files it installed, including the changes you've made. So, Be careful there...
+If you'd like to uninstall Termux Desktop, just run `setup.sh` with *--uninstall* option. Just keep the `setup.sh` script and delete the cloned repository to save space. The command below will remove all the packages and delete all the config files it installed, **including the changes you've made**.
 ```
 ./setup.sh --uninstall
 ```
 
 ***VNC Client***
 
-Now you need a VNC client app to connect to server. I'm using this Android VNC client: [VNC Viewer](https://play.google.com/store/apps/details?id=com.realvnc.viewer.android). You can use [TigerVNC](https://tigervnc.org/) if you're trying to connect to server by a computer (Windows or Linux).
+Now you need a VNC client app to connect to server. If you are on Android, it's recommended to use this client: [VNC Viewer](https://play.google.com/store/apps/details?id=com.realvnc.viewer.android). You can use [TigerVNC](https://tigervnc.org/) if you're trying to connect to server by a computer (Windows or Linux).
 
 Determine port number on which VNC server listens. It can be calculated like this: 5900 + {display number}. So for display 'localhost:1' the port will be 5901. <br />
 
@@ -196,15 +184,15 @@ Well, These are some ideas or things you can do with termux desktop. From Learni
 |--|--|--|
 |![img](./previews/app_3.png)|![img](./previews/app_4.png)|![img](./previews/app_5.png)|
 
-- Penetration testing and Learn cyber security stuff
+- Penetration Testing and learning cybersecurity
 
-> I'm not doing anything **illegal** or sponsoring any kind of **Hacking and Cracking**. *Termux is a powerful tool, use it with responsibilities.* <br />
+> I'm not doing anything **illegal** or sponsoring any kind of **hacking and cracking**. *Termux is a powerful tool, use it with responsibilities.* <br />
 
 |Metasploit - Sherlock - Socialfish - Zphisher - Sqlmap|
 |--|
 |![img](./previews/app_6.png)|
 
-- Play classic retro games or Run Microsoft Windows from 90s with `Dosbox`
+- Play classic retro games or run Microsoft Windows from 90s with `Dosbox`
 
 |Turbo C++, Windows 1 and Windows 3|Duke and Blue Brothers|
 |--|--|
@@ -222,7 +210,7 @@ You'll probably get the idea of possible things you can do with Termux and how T
 
 ### Keybindings
 
-Here's some shortcut keys you want to use to speed up your work. For more, `Right click on desktop > Keybinds`
+Here's some shortcut keys you want to use to speed up your work. For more, `Right click on Desktop > Keybinds`
 
 |Keys|Action| ----- |Keys|Action|
 |--|--|--|--|--|
@@ -254,14 +242,13 @@ Here's some shortcut keys you want to use to speed up your work. For more, `Righ
 ### Additional Tools
 
 You can install additional tools for termux, to make it visually look good.
-1. [Oh my zsh](https://github.com/adi1090x/termux-omz), Setup zsh with [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) framework. (Already Added in this setup)
+1. [Oh my zsh](https://github.com/adi1090x/termux-omz), set up zsh with [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) framework. (Already Added in this setup)
 2. [Termux style](https://github.com/adi1090x/termux-style), Change color and fonts in termux.
 
 ### FYI
 
-- If you face any problem or get any error, you can create an issue & i'll try to help.
+- If you face any problem or get any error, you can create an issue & I'll try to help.
 - Edit `~/.local/bin/email` and put your Email ID and Password (Use an App password) to show unread mails on polybar.
 - You may need to edit some config files accoring to your need (`~/.mutt/muttrc`, `~/.gitconfig`)
-- Don't Email or DM me to ask how to hack, I ain't a Hacker. 
 - Have Fun, Share this repository with your friends.
 

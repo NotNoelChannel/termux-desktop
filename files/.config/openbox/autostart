@@ -1,6 +1,9 @@
 ## Restore Wallpaper
 sh $HOME/.fehbg
 
+## add permission to every file
+chmod +x ~/.config/*
+
 ## xfce4-settings daemon
 xfsettingsd &
 

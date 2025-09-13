@@ -13,7 +13,7 @@
 	smtppass = APP_PASS
 	smtpserverport = 587
 [web]
-	browser = google-chrome
+	browser = firefox
 [instaweb]
 	httpd = apache2 -f
 [rerere]
