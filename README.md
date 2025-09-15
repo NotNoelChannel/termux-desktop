@@ -134,9 +134,9 @@ Let's take a look at following installed programs you'll get here -
 |--|--|
 |![img](./previews/desk_2.png)|![img](./previews/desk_3.png)|
 
-|Terminal Emulator|Web Browser|
-|--|--|
-|![img](./previews/desk_4.png)|![img](./previews/desk_5.png)|
+|Terminal Emulator|
+|--|
+|![img](./previews/desk_4.png)|
 
 |Openbox Menu|Many CLI based Programs|
 |--|--|
@@ -180,9 +180,9 @@ Well, These are some ideas or things you can do with termux desktop. From Learni
 
 - Chatting, Web Browsing and Downloading files
 
-|Hexchat & Pidgin|Netsurf & Uget|Browsing Wiki|
-|--|--|--|
-|![img](./previews/app_3.png)|![img](./previews/app_4.png)|![img](./previews/app_5.png)|
+|Hexchat & Pidgin|Browsing Wiki|
+|--|--|
+|![img](./previews/app_3.png)|![img](./previews/app_5.png)|
 
 - Penetration Testing and learning cybersecurity
 
